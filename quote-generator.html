@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://kit.fontawesome.com/f7187ce1e1.js" crossorigin="anonymous"></script>
+    
+  <body>
+      <p  style="italic"  >RMK Students</p>
+      
+    <a href="https://github.com/Saravanaraaj"><i class="fab fa-github"></i></a>
+
+    <a href="https://www.linkedin.com/in/saravanaraaj-k-519a24257/"><i class="fab fa-linkedin-in"></i></i>
+
+    <a href="https://www.instagram.com/KPDMadhuka/"><i class="fab fa-instagram"></i>
+    
+    <div class="quote-box">
+      <h2>Quote of the day</h2>
+      <blockquote id="quote" >Loading...</blockquote>
+      <span id="author">Loading...</span>
+    <div>
+      <button onclick="getquote(api_url)">New Thought</button>
+      <button onclick="tweet()" ><img src="https://e7.pngegg.com/pngimages/708/311/png-clipart-twitter-twitter-thumbnail.png">Tweet</button>
+    </div>
+    </div>
+    
+    
+    
+<script>
+
+  const quote = document.getElementById("quote");
+  const author = document.getElementById("author");
+  const api_url="https://api.quotable.io/random";
+
+
+  async function getquote(url){
+    const response = await fetch(url);
+    var data = await response.json();
+
+    quote.innerHTML=data.content;
+    author.innerHTML=data.author;
+  }
+
+  getquote(api_url);
+
+  function tweet(){
+    window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + "---by " + author.innerHTML, "Tweet window", "width=600, height=300");
+  }
+
+
+  </script>
+  <section id="section-result">
+			<h1 id="result">  Select your rating</h1>
+		</section>
+		<section id="section-rating">
+			<fieldset class='set'>
+					<input id="rd5" class="rd" name="rd" type="radio">
+					<label for="rd5" class="star fa fa-star-o fa-lg"></label>
+
+					<input id="rd4" class="rd" name="rd" type="radio">
+					<label for="rd4" class="star fa fa-star-o fa-lg"></label>
+
+					<input id="rd3" class="rd" name="rd" type="radio">
+					<label for="rd3" class="star fa fa-star-o fa-lg"></label>
+
+					<input id="rd2" class="rd" name="rd" type="radio">
+					<label for="rd2" class="star fa fa-star-o fa-lg"></label>
+
+					<input id="rd1" class="rd" name="rd" type="radio">
+					<label for="rd1" class="star fa fa-star-o fa-lg"></label>
+			</fieldset>
+		</section>
+		<script src="app.js"></script>
+  
+    
+  </body>
+    
+</html>
